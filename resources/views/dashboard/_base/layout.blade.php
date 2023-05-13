@@ -72,6 +72,17 @@
                     <span>Register</span></a>
             </li>
 
+            <!-- Nav Item - Charts -->
+            <li class="nav-item active">
+                <form action="{{ Route('logout') }}" method="post">
+                    @csrf
+                    <button class="bg-transparent border-0 nav-link">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>LogOut</span>
+                    </button>
+                </form>
+            </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 
