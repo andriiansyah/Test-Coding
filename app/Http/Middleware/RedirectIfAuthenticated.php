@@ -27,6 +27,10 @@ class RedirectIfAuthenticated
             }
         }
 
-        return $next($request);
+        $response = $next($request);
+
+        $response->headers->set('Cache-Control', 'no-cache, no-store, must-revalidate');
+
+        return $response;
     }
 }
