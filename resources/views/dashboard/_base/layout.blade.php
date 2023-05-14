@@ -21,6 +21,9 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('assets/cms/css/sb-admin-2.min.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="{{ asset('assets/cms/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
     @show
     @section('script-top')
     @show
@@ -48,7 +51,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ Route('dashboard') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -56,9 +59,9 @@
             <!-- Nav Item - Charts -->
             <li class="nav-item active">
                 {{-- <a class="nav-link" href="{{ Route('cms.product') }}"> --}}
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{ Route('user') }}">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Product</span></a>
+                    <span>List User</span></a>
             </li>
 
             <!-- Divider -->
@@ -67,9 +70,17 @@
             <!-- Nav Item - Charts -->
             <li class="nav-item active">
                 {{-- <a class="nav-link" href="{{ Route('cms.register') }}"> --}}
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{ Route('kampus') }}">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Register</span></a>
+                    <span>List Kampus</span></a>
+            </li>
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item active">
+                {{-- <a class="nav-link" href="{{ Route('cms.register') }}"> --}}
+                <a class="nav-link" href="{{ Route('program') }}">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Program Studi</span></a>
             </li>
 
             <!-- Nav Item - Charts -->
@@ -409,10 +420,13 @@
 
         <!-- Page level plugins -->
         <script src="{{ asset('assets/cms/vendor/chart.js/Chart.min.js') }}"></script>
+        <script src="{{ asset('assets/cms/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('assets/cms/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
 
         <!-- Page level custom scripts -->
         <script src="{{ asset('assets/cms/js/demo/chart-area-demo.js') }}"></script>
         <script src="{{ asset('assets/cms/js/demo/chart-pie-demo.js') }}"></script>
+        <script src="{{ asset('assets/cms/js/demo/datatables-demo.js') }}"></script>
     @show
 
 </body>
