@@ -19,16 +19,27 @@
         @endif
     @endif --}}
 
-    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">Total Mahasiswa Yang Terdaftar.</h5>
-            <h1 class="card-text text-center">{{ $data }}</h1>
+    @if(Auth::user()->role == 1)
+        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Total Mahasiswa Yang Terdaftar.</h5>
+                <h1 class="card-text text-center">{{ $data['count'] }}</h1>
+            </div>
         </div>
-    </div>
+    @elseif(Auth::user()->role == 2)
+        @if(!$data['check'])
+            <a href="/pendaftaran/{{ Auth::user()->email }}/create" class="btn btn-primary">Pendaftaran Mahasiswa</a>
+        @else
+            <h1 class="text-success">Anda Sudah Melakukan Pendaftaran</h1>
+        @endif
+    @endif
+
+    {{-- {{Auth::user()->role }} --}}
+    
 
     
     <!-- DataTales Example -->
-    <div class="card shadow mb-4">
+    {{-- <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
         </div>
@@ -92,6 +103,6 @@
                 </table>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 @endsection

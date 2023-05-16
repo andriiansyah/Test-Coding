@@ -4,6 +4,9 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KampusController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\MahasiswaDaftarController;
+use App\Http\Controllers\PendaftaranController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramStudiController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
@@ -54,3 +57,12 @@ Route::post('/program', [ProgramStudiController::class, 'store'])->name('program
 Route::get('/program/{id}/edit', [ProgramStudiController::class, 'edit'])->name('program.edit')->middleware('auth');
 Route::put('/program/{id}', [ProgramStudiController::class, 'update'])->name('program.update')->middleware('auth');
 Route::delete('/program/{id}', [ProgramStudiController::class, 'destroy'])->name('program.destroy')->middleware('auth');
+
+Route::get('/pendaftaran/{email}/create', [PendaftaranController::class, 'create'])->name('pendaftaran.create')->middleware('auth');
+Route::post('/pendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.store')->middleware('auth');
+
+
+Route::get('/mahasiswadaftar', [MahasiswaDaftarController::class, 'index'])->name('mahasiswadaftar')->middleware('auth');
+Route::get('/mahasiswadaftar/{id}/edit', [MahasiswaDaftarController::class, 'edit'])->name('mahasiswadaftar.edit')->middleware('auth');
+
+Route::get('/profile/{email}/edit', [ProfileController::class, 'edit'])->name('profile.edit')->middleware('auth');

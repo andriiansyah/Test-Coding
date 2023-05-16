@@ -56,32 +56,65 @@
                     <span>Dashboard</span></a>
             </li>
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item active">
-                {{-- <a class="nav-link" href="{{ Route('cms.product') }}"> --}}
-                <a class="nav-link" href="{{ Route('user') }}">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>List User</span></a>
-            </li>
+            @if(Auth::user()->role == 1)
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+                <!-- Nav Item - Charts -->
+                <li class="nav-item active">
+                    {{-- <a class="nav-link" href="{{ Route('cms.product') }}"> --}}
+                    <a class="nav-link" href="{{ Route('user') }}">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>List User</span></a>
+                </li>
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item active">
-                {{-- <a class="nav-link" href="{{ Route('cms.register') }}"> --}}
-                <a class="nav-link" href="{{ Route('kampus') }}">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>List Kampus</span></a>
-            </li>
+                <!-- Divider -->
+                <hr class="sidebar-divider">
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item active">
-                {{-- <a class="nav-link" href="{{ Route('cms.register') }}"> --}}
-                <a class="nav-link" href="{{ Route('program') }}">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Program Studi</span></a>
-            </li>
+                <!-- Nav Item - Charts -->
+                <li class="nav-item active">
+                    {{-- <a class="nav-link" href="{{ Route('cms.register') }}"> --}}
+                    <a class="nav-link" href="{{ Route('kampus') }}">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>List Kampus</span></a>
+                </li>
+
+                <!-- Nav Item - Charts -->
+                <li class="nav-item active">
+                    {{-- <a class="nav-link" href="{{ Route('cms.register') }}"> --}}
+                    <a class="nav-link" href="{{ Route('program') }}">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>Program Studi</span></a>
+                </li>
+                
+                <!-- Nav Item - Charts -->
+                <li class="nav-item active">
+                    {{-- <a class="nav-link" href="{{ Route('cms.register') }}"> --}}
+                    <a class="nav-link" href="{{ Route('mahasiswadaftar') }}">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>Mahasiswa Daftar</span></a>
+                </li>
+
+            @endif
+
+
+            @if(Auth::user()->role == 2)
+
+                <!-- Nav Item - Charts -->
+                <li class="nav-item active">
+                    {{-- <a class="nav-link" href="{{ Route('cms.register') }}"> --}}
+                    <a class="nav-link" href="/pendaftaran/{{ Auth::user()->email }}/create">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>Isi dan Registrasi Form Pendaftaran Mahasiswa Baru</span></a>
+                </li>
+
+                <!-- Nav Item - Charts -->
+                <li class="nav-item active">
+                    {{-- <a class="nav-link" href="{{ Route('cms.register') }}"> --}}
+                    <a class="nav-link" href="{{ Route('profile.edit', Auth::user()->email) }}">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>Profile</span></a>
+                </li>
+
+            @endif
 
             <!-- Nav Item - Charts -->
             <li class="nav-item active">
